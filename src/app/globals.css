@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  border-color: rgba(148, 163, 184, 0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(86, 212, 195, 0.14), transparent 28%),
+    radial-gradient(circle at top right, rgba(242, 181, 97, 0.08), transparent 26%),
+    linear-gradient(180deg, #07111f 0%, #091829 48%, #07111f 100%);
+  color: #eaf2fb;
+  font-family: var(--font-body), sans-serif;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, black, transparent 82%);
+  opacity: 0.38;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease,
+    opacity 180ms ease,
+    box-shadow 180ms ease;
+}
+
+::selection {
+  background: rgba(86, 212, 195, 0.24);
+  color: #f8fbff;
+}
+
+@layer components {
+  .section-shell {
+    @apply relative border-b border-white/5 py-20 sm:py-24;
+  }
+
+  .panel {
+    @apply rounded-3xl border border-white/10 bg-white/[0.04] shadow-ambient backdrop-blur;
+  }
+
+  .panel-soft {
+    @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-accent;
+  }
+
+  .headline {
+    @apply font-heading text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl;
+  }
+
+  .subheadline {
+    @apply max-w-3xl text-base leading-8 text-slate-300 sm:text-lg;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(120deg, #f5f7fb 0%, #8fe7dc 50%, #f2b561 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .mask-fade-bottom {
+    mask-image: linear-gradient(180deg, black 72%, transparent 100%);
+  }
+}
